@@ -38,5 +38,19 @@ python create_graphics.py \
          -s 2021072423 \
          --tiles full
 
+python create_graphics.py \
+         skewts \
+         --all_leads \
+         -d /scratch1/BMC/wrfruc/murdzek/nature_run_3km/WRF/run \
+         -f 0 \
+         --file_tmpl "wrfnat_hrconus_{FCST_TIME:02d}.grib2" \
+         --file_type nat \
+         --max_plev 100 \
+         -m "Nature Run" \
+         -n 4 \
+         -o /scratch1/BMC/wrfruc/murdzek/nature_run_3km/graphics \
+         -s 2021072423 \
+         --sites ./static/sites.txt
+
 report-mem
 date
