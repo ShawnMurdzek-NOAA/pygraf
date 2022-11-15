@@ -1,0 +1,69 @@
+hourly:
+  model: hrrr
+  variables:
+    1hsnw:
+      - sfc
+    1ref:
+      - 1000m
+    acfrzr:
+      - sfc
+    cape:
+      - mu
+      - mul
+      - mx90mb
+      - sfc
+    ceil:
+      - ua
+    cin:
+      - sfc
+    cloudcover:
+      - high
+      - low
+      - mid
+    ctop:
+      - ua
+    dewp:
+      - 2m
+    echotop:
+      - sfc
+    flru:
+      - sfc
+    gust:
+      - 10m
+    hpbl:
+      - sfc
+    lhtfl:
+      - sfc
+    ptmp:
+      - 2m
+    ptyp:
+      - sfc
+    pwtr:
+      - sfc
+    rh:
+      - 2m
+    shtfl:
+      - sfc
+    snod:
+      - sfc
+    solar:
+      - sfc
+    temp:
+      - 2ds
+      - 2m
+      - sfc
+    ulwrf:
+      - sfc
+      - top
+    uswrf:
+      - sfc
+      - top
+    vil:
+      - sfc
+    vis:
+      - sfc
+    weasd:
+      - sfc
+    wspeed:
+      - 10m
+      - 80m

@@ -1,0 +1,17 @@
+hourly:
+  model: hrrr
+  variables:
+    rh:
+      - 850mb
+    temp:
+      - 500mb
+      - 700mb
+      - 850mb
+      - 925mb
+    vort:
+      - 500mb
+    vvel:
+      - 700mb
+    wspeed:
+      - 250mb
+      - 850mb

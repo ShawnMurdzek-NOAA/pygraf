@@ -1,0 +1,8 @@
+Additional Notes
+
+1. The list of all possible fields that can be plotted is in adb_graphics/default_specs.yml. This
+    file also contains the configuration of each of those plots (e.g., colorbars, contour levels, 
+    etc.)
+
+2. create_graphics.py is the primary driver. Functions are defined first, with the actual code that
+    calls these functions being at the very end.
