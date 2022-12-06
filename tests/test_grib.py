@@ -45,7 +45,7 @@ def test_UPPData(natfile, prsfile):
         assert isinstance(upp.vspec, dict)
         # Test for appropriate date formatting
         test_date = datetime.datetime(2020, 12, 5, 12)
-        assert upp.date_to_str(test_date) == '20201205 12 UTC'
+        assert upp.date_to_str(test_date) == '20201205 1200 UTC'
 
 def test_fieldData(prsfile):
 

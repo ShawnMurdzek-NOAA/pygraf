@@ -243,7 +243,7 @@ def parse_args():
     parser.add_argument(
         '-s',
         dest='start_time',
-        help='Start time in YYYYMMDDHH format',
+        help='Start time in YYYYMMDDHHMM format',
         required=True,
         type=utils.to_datetime,
         )

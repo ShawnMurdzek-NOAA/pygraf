@@ -85,8 +85,8 @@ def fhr_list(args):
     return args
 
 def from_datetime(date):
-    ''' Return a string like YYYYMMDDHH given a datetime object. '''
-    return dt.datetime.strftime(date, '%Y%m%d%H')
+    ''' Return a string like YYYYMMDDHHMM given a datetime object. '''
+    return dt.datetime.strftime(date, '%Y%m%d%H%M')
 
 def get_func(val: str):
 
@@ -334,9 +334,12 @@ def timer(func):
     return wrapper_timer
 
 def to_datetime(string):
-    ''' Return a datetime object give a string like YYYYMMDDHH. '''
-
-    return dt.datetime.strptime(string, '%Y%m%d%H')
+    ''' Return a datetime object give a string like YYYYMMDDHH or YYYYMMDDHHMM '''
+  
+    if len(string) == 10:
+        return dt.datetime.strptime(string, '%Y%m%d%H')
+    elif len(string) == 12:
+        return dt.datetime.strptime(string, '%Y%m%d%H%M')
 
 @timer
 def zip_products(fhr, workdir, zipfiles):

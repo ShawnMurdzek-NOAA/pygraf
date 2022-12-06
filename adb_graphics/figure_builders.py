@@ -235,7 +235,7 @@ def parallel_skewt(cla, fhr, ds, site, workdir):
         orientation='landscape',
         )
 
-    start_time = cla.start_time.strftime('%Y%m%d%H')
+    start_time = cla.start_time.strftime('%Y%m%d%H%M')
     csvfile = f"{skew.site_code}.{skew.site_num}.skewt.{start_time}_f{fhr:03d}.csv"
     csv_path = os.path.join(workdir, csvfile)
     print('*' * 80)

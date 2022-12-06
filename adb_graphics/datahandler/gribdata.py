@@ -58,7 +58,18 @@ class UPPData(specs.VarSpec):
         ''' Returns the initial time of the grib file as a datetime object from
         the grib file.'''
 
-        return datetime.datetime.strptime(self.field.initial_time, '%m/%d/%Y (%H:%M)')
+        if int(self.fhr) == 0:
+            ftime = float(self.field.forecast_time[0])
+            units = self.field.forecast_time_units
+            if units == 'minutes':
+                delta = datetime.timedelta(minutes=ftime)
+            elif units == 'hours':
+                delta = datetime.timedelta(hours=ftime)
+            elif units == 'days':
+                delta = datetime.timedelta(days=ftime)
+            return datetime.datetime.strptime(self.field.initial_time, '%m/%d/%Y (%H:%M)') + delta
+        else:
+            return datetime.datetime.strptime(self.field.initial_time, '%m/%d/%Y (%H:%M)')
 
     @property
     def clevs(self) -> np.ndarray:
@@ -90,7 +101,7 @@ class UPPData(specs.VarSpec):
         ''' Returns a formatted string (for graphic title) from a datetime
         object'''
 
-        return date.strftime('%Y%m%d %H UTC')
+        return date.strftime('%Y%m%d %H%M UTC')
 
     @property
     def field(self):
