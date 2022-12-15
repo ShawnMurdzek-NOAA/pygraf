@@ -15,3 +15,8 @@ hourly:
     wspeed:
       - 250mb
       - 850mb
+    refl10cm:
+      - 500mb
+      - 700mb
+      - 850mb
+      - 925mb
