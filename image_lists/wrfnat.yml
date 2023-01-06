@@ -3,8 +3,6 @@ hourly:
   variables:
     1hsnw:
       - sfc
-    1ref:
-      - 1000m
     acfrzr:
       - sfc
     cape:
@@ -20,6 +18,8 @@ hourly:
       - high
       - low
       - mid
+    cref:
+      - sfc
     ctop:
       - ua
     dewp:

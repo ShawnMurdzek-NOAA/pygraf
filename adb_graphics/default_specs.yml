@@ -445,7 +445,7 @@ cref: # Composite reflectivity
     <<: *refl
     ncl_name: REFC_P0_L{level_type}_{grid}
     title: Composite Reflectivity
-    include_obs: True
+    include_obs: False
 csnow: # Categorical Snow
   sfc:
     ncl_name: CSNOW_P0_L1_{grid}
