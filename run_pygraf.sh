@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#SBATCH -A wrfruc
+#SBATCH -A zrtrr
 #SBATCH -t 02:00:00
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=8
@@ -14,15 +14,15 @@ source ./pre.sh
 python create_graphics.py \
          maps \
          --all_leads \
-         -d /scratch1/BMC/wrfruc/murdzek/nature_run_1km_3hr/output/202107250100/UPP \
+         -d /scratch1/BMC/wrfruc/murdzek/nature_run_spring/output/202204291200/UPP \
          -f 00 \
-         --file_tmpl "wrfnat_202107250200.grib2" \
+         --file_tmpl "wrfnat_202204291300.grib2" \
          --file_type nat \
          --images ./image_lists/wrfnat.yml hourly \
          -m "Nature Run" \
          -n 16 \
-         -o /scratch1/BMC/wrfruc/murdzek/nature_run_1km_3hr/output/202107250100/graphics \
-         -s 202107250200 \
+         -o /scratch1/BMC/wrfruc/murdzek/test \
+         -s 202204291300 \
          --tiles full
 
 #python create_graphics.py \

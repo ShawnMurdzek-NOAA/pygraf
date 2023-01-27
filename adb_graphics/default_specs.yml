@@ -95,6 +95,16 @@ refl10cm: # S-band radar reflectivity
     <<: *refl
   925mb:
     <<: *refl
+1hpcp: # Hourly total precipitation
+  sfc:
+    clevs: [0.002, 0.01, 0.05, 0.1, 0.25, 0.50, 0.75, 1.0, 2.0]
+    cmap: gist_ncar
+    colors: pcp_colors
+    ncl_name: APCP_P8_L1_{grid}_acc1h
+    ticks: 0
+    title: 1 hr Total Precip
+    transform: conversions.kgm2_to_in
+    unit: in
 1hsnw: # 1 hr Accumulated Snow Using 10:1 Ratio
   sfc:
     clevs: [0.03, 0.05, 0.1, 0.5, 1, 2, 3, 4, 5, 6, 7, 8]
