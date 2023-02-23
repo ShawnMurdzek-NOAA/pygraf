@@ -5,8 +5,6 @@ hourly:
       - sfc
     1hsnw:
       - sfc
-    acfrzr:
-      - sfc
     cape:
       - mu
       - mul
@@ -58,7 +56,6 @@ hourly:
       - sfc
       - top
     uswrf:
-      - sfc
       - top
     vil:
       - sfc
