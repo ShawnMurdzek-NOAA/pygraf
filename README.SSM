@@ -6,3 +6,8 @@ Additional Notes
 
 2. create_graphics.py is the primary driver. Functions are defined first, with the actual code that
     calls these functions being at the very end.
+
+3. There appears to be an irregular behavior where print statements are not necessarily sent to the 
+    stdout/stderr file when submitting pygraf as part of a slurm job. To mitigate this, try starting 
+    an interactive session and running pygraf from the command line as part of a bash job with a single
+    processor.
