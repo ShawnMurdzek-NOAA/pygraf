@@ -1,5 +1,5 @@
 hourly:
-  model: global
+  model: global_mpas
   variables:
     1ref:
       - 1000m
@@ -29,6 +29,8 @@ hourly:
       - 500mb
     gust:
       - 10m
+    hailcast:
+      - maxsfc
     hlcy:
       - sr01
       - sr03
@@ -60,7 +62,7 @@ hourly:
       - 850mb
       - 925mb
       - sfc
-    totp6h:
+    totp:
       - sfc
     ulwrf:
       - sfc

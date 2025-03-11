@@ -841,8 +841,15 @@ hail: # Max 1h Hail diameter
 hailcast: # Max 1h Hail diameter
   maxsfc: # surface, from HAILCAST
     <<: *hail
-    ncl_name: HAIL_P8_L1_{grid}_max1h
-    title: Max 1h Hail Diameterat Sfc from HAILCAST
+    ncl_name:
+      global: HAIL_P8_L1_{grid}_max6h
+      global_mpas: HAIL_P8_L1_{grid}_max1h
+      hrrr: HAIL_P8_L1_{grid}_max1h
+      hrrrhi: HAIL_P8_L1_{grid}_max1h
+      hrrrcar: HAIL_P8_L1_{grid}_max1h
+      rap: HAIL_P8_L1_{grid}_max1h
+      rrfs: HAIL_P8_L1_{grid}_max1h
+    title: Max 6h Hail Diameter at Sfc from HAILCAST
 hlcy: # Helicity
   in16: &hlcy # Hourly updraft helicity over 1-6 km layer
     clevs: !!python/object/apply:numpy.arange [25, 301, 25]
@@ -1199,6 +1206,7 @@ pres:
     colors: pmsl_colors
     ncl_name:
       global: PRMSL_P0_L101_{grid}
+      global_mpas: MSLMA_P0_L101_{grid}
       globalAK: PRMSL_P0_L101_{grid}
       globalCONUS: PRMSL_P0_L101_{grid}
       globalNHemi: PRMSL_P0_L101_{grid}
@@ -1666,9 +1674,9 @@ temp: # Temperature
     unit: F
     wind: 10m
   500mb: &ua_temp
-    clevs: !!python/object/apply:numpy.arange [-70, 10, 2.5]
+    clevs: !!python/object/apply:numpy.arange [-40, 40, 2.5]
     cmap: jet
-    colors: t_colors
+    colors: ua_temp_colors
     contours:
       pres_sfc:
         levels: [0, 500]
@@ -1689,7 +1697,6 @@ temp: # Temperature
     wind: True
   700mb:
     <<: *ua_temp
-    clevs: !!python/object/apply:numpy.arange [-40, 40, 2.5]
     contours:
       pres_sfc:
         colors: 'k'
@@ -1703,7 +1710,6 @@ temp: # Temperature
         levels: [0, 700]
   850mb:
     <<: *ua_temp
-    clevs: !!python/object/apply:numpy.arange [-40, 40, 2.5]
     contours:
       pres_sfc:
         colors: 'k'
@@ -1715,7 +1721,6 @@ temp: # Temperature
         levels: [0, 850]
   925mb:
     <<: *ua_temp
-    clevs: !!python/object/apply:numpy.arange [-40, 40, 2.5]
     contours:
       pres_sfc:
         colors: 'k'
@@ -1728,6 +1733,7 @@ temp: # Temperature
   sfc:
     <<: *sfc_temp
     ncl_name: TMP_P0_L1_{grid}
+    title: Skin Temperature
     wind: False
   ua:
     <<: *ua_temp
@@ -2002,6 +2008,16 @@ weasd: # Water equivalent of accumulated snow depth
     title: Snow Water Equivalent
     transform: conversions.kgm2_to_in
     unit: in
+snoliqr: # Snow-liquid ratio (from U. Utah diagnostic in UPP)
+  sfc:
+    clevs: [6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+    cmap: gist_ncar
+    colors: snow_colors
+    ncl_name: SDEN_P0_L1_{grid}
+    ticks: 0
+    title: Instantaneous Snow-Liquid Ratio (U. Utah Method)
+    transform: conversions.sden_to_slr
+    print_units: false
 windmax:
   10m:
     accumulate: True
